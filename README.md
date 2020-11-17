@@ -1,0 +1,2 @@
+# NewsAPIApp
+Google news api
