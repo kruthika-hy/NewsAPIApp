@@ -1,0 +1,15 @@
+body{
+    overflow: hidden;
+}
+.fullContainer{
+    height:calc(100vh - 100px);
+    overflow-y: auto;
+    position: relative;
+    top: 5%;
+}
+.btn:focus{
+    box-shadow: none;
+}
+.card-header{cursor: pointer;}
+.btn-primary{margin-top:2%}
+.btnStayRight{float: right;}
