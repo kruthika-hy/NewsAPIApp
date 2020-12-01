@@ -1,15 +1,27 @@
 body{
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 .fullContainer{
-    height:calc(100vh - 100px);
+    height:calc(100vh - 300px);
     overflow-y: auto;
     position: relative;
     top: 5%;
 }
+.container .btn
 .btn:focus{
     box-shadow: none;
 }
 .card-header{cursor: pointer;}
 .btn-primary{margin-top:2%}
-.btnStayRight{float: right;}
+.btnStayRight{
+    position: fixed;
+    top: 87%;
+    left: 92%;
+    z-index: 999;
+    float: right;
+}
+.AddNew_section{
+    margin-top:1%;
+    margin-bottom: 1%;
+}
+.AddNew_section .btn{border-radius: 0px;}

@@ -4,22 +4,21 @@ import {
     Card,
   } from 'react-bootstrap';
 
-export const News = ({newsContent,newsFirst}) => {
+export const News = ({newsContent,newsId, newsFirst}) => {
+    // console.log('newsId',newsId)
     return(
-        <>
-        <Accordion defaultActiveKey={newsFirst ? newsFirst : null}>
-            <Card>
-                <Accordion.Toggle as={Card.Header} eventKey={newsContent.publishedAt} key={newsContent.publishedAt}>
+       <Card>
+                <Accordion.Toggle as={Card.Header} eventKey={newsFirst !== null ? "0" : newsId} >
                     {newsContent.title}
                 </Accordion.Toggle>
-                <Accordion.Collapse eventKey={newsContent.publishedAt} key={newsContent.publishedAt}>
+                <Accordion.Collapse eventKey={newsFirst !== null ? "0" : newsId}>
                     <Card.Body>
                         <div className="row">
                             <div className="col-md-4">
                                 Author: 
                             </div>
                             <div className="col-md-8">
-                                {newsContent.author}
+                                {newsContent.author  === null ? "-" : newsContent.author}
                             </div>
                         </div>
                         <div className="row">
@@ -27,7 +26,7 @@ export const News = ({newsContent,newsFirst}) => {
                                 Description: 
                             </div>
                             <div className="col-md-8">
-                                {newsContent.description}
+                                {newsContent.description === null ? "-" : newsContent.description}
                             </div>
                         </div>
                         <div className="row">
@@ -41,7 +40,5 @@ export const News = ({newsContent,newsFirst}) => {
                     </Card.Body>
                 </Accordion.Collapse>
             </Card>
-        </Accordion>
-        </>
     )
 }
