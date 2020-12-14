@@ -4,7 +4,7 @@ import {
     Card,
   } from 'react-bootstrap';
 
-export const News = ({newsContent,newsId, newsFirst}) => {
+export const NewsTwo = ({newsContent,newsId, newsFirst}) => {
     // console.log('newsId',newsId)
     return(
        <Card>
@@ -18,15 +18,15 @@ export const News = ({newsContent,newsId, newsFirst}) => {
                                 Author: 
                             </div>
                             <div className="col-md-8">
-                                {newsContent.author  === null ? "-" : newsContent.author}
+                                {newsContent.byline  === null ? "-" : newsContent.byline}
                             </div>
                         </div>
                         <div className="row">
                             <div className="col-md-4">
-                                Description: 
+                                Abstract: 
                             </div>
                             <div className="col-md-8">
-                                {newsContent.description === null ? "-" : newsContent.description}
+                                {newsContent.abstract === null ? "-" : newsContent.abstract}
                             </div>
                         </div>
                         <div className="row">

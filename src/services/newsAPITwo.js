@@ -1,9 +1,10 @@
+// NY times API free
 import axios from 'axios';
 // import {selectRequiredFields} from "../utils/selectRequiredFields"
-const apiKey = "28121d5045cf4256a730f6ac14df004c";
-export const baseURL = `http://newsapi.org/v2/`;
+const apiKey = "sR04ptPBDMaMNqAqhRQiIkVVjIKn1nSa";
+export const baseURL = `https://api.nytimes.com/svc/topstories/v2/`;
 export const pageLength = 15;
-export const newStoriesURL = `${baseURL}top-headlines?country=de&category=business&apiKey=${apiKey}`;
+export const newStoriesURL = `${baseURL}home.json?api-key=${apiKey}`;
 // export const newsURL = `${baseURL}item/`;
 
 
@@ -12,10 +13,9 @@ export const newStoriesURL = `${baseURL}top-headlines?country=de&category=busine
 //     return result;
 // }
 // async function always returns a promise with data
-export const getNews = async (pageLength) => {
-    console.log("logPage",pageLength,newStoriesURL)
+export const getNews = async (val) => {
     // destructuring the the API fetched data by using {data}
-    const result = await axios.get(`${newStoriesURL}&pageSize=${pageLength}`).then(({data}) => data && data);
-    // console.log('result',result.articles)
+    const result = await axios.get(newStoriesURL).then(({data}) => data && data);
+    console.log('result',result.results)
     return result;
 }

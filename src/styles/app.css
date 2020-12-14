@@ -1,11 +1,25 @@
 body{
     /* overflow: hidden; */
 }
-.fullContainer{
-    height:calc(100vh - 300px);
+.mainBackground{
+    background-color: rgb(238, 238, 238);
+    border-radius: 2%;
+    max-height: calc(100vh - 100px);
+}
+.leftContainer{
+    height:calc(100vh - 250px);
     overflow-y: auto;
     position: relative;
+    top: 0.2%;
+}
+.rightContainer{
+    position: relative;
     top: 5%;
+}
+.rightContainerChild{
+    height:calc(100vh - 250px);
+    overflow-y: auto;
+    margin-top:2%;
 }
 .container .btn
 .btn:focus{
@@ -25,3 +39,5 @@ body{
     margin-bottom: 1%;
 }
 .AddNew_section .btn{border-radius: 0px;}
+.activeDropdown{background-color: #DFE6E9;}
+.basic-panel{background-color: rgba(0,0,0,.03); border-color: rgba(0,0,0,.03);}
