@@ -5,7 +5,8 @@ import {News} from "./News"
 // const [pageCount] = this.props;
 
 export const NewsContainer = (props) => {
-  const pageCount= props.pageCount
+  const pageCount= props.pageCount;
+  const nerClickEvent = props.nerClickEvent;
   //to store the ids so that when there is any connectivity issues UI should still be working
   // storyIds going to be initialized with an empty array and we call setStoryIds if we need any changes
     const [newsCont, setNewsCont] = useState([]);
@@ -19,7 +20,7 @@ export const NewsContainer = (props) => {
 //   return(newsIds.map(newsID => <NewsContainer newsID = {newsID} key={newsID}/>))
     //  console.log("newsContent",newsCont)
      return(
-        newsCont.map((newsData,i) => <News newsContent={newsData} key={i} newsId={i} newsFirst={i === 0 ? "0" : null}/>)
+        newsCont.map((newsData,i) => <News nerClick={nerClickEvent} newsContent={newsData} key={i} newsId={i} newsFirst={i === 0 ? "0" : null}/>)
         // newsCont && newsCont.url ?
         // (
         // <>

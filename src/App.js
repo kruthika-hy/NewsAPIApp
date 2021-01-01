@@ -68,6 +68,9 @@ class App extends Component {
     // console.log("this.state.selectAPIs",this.state.selectedValue)
     this.setState({ selectedValue: this.state.selectedValue });
   }
+  handleNERClick = (json) => {
+    console.log("Hello Sagar !",json)
+  }
   handleNewFeedClick = (val,event) => {
     event.preventDefault();
     if(val !== ""){
@@ -98,7 +101,7 @@ class App extends Component {
               </Alert>
               <div className="leftContainer">
                 <Accordion defaultActiveKey="0">
-                  {this.state.selectedValue === "NewsAPI" ? <NewsContainer pageCount={this.state.pageLengthValue}/> : <NewsContainerTwo pageCount={this.state.pageLengthValue}/>}
+                  {this.state.selectedValue === "NewsAPI" ? <NewsContainer nerClickEvent={this.handleNERClick} pageCount={this.state.pageLengthValue}/> : <NewsContainerTwo pageCount={this.state.pageLengthValue}/>}
                 
                 {/* <NewsContainerTwo/> */}
                 </Accordion>
