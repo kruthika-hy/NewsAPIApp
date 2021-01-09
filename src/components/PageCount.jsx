@@ -9,8 +9,8 @@ class SelectPageDropDown extends Component {
         return ( 
             <>
              {/* <li className="list-group-item" id={id}>{desc}</li> */}
-             <Dropdown className="col-md-6">
-                <Dropdown.Toggle variant="primary" id="dropdown-basic">
+             <Dropdown className="col-md-3">
+                <Dropdown.Toggle variant="primary btn-sm" id="dropdown-basic">
                     Select page length
                 </Dropdown.Toggle>
                 <Dropdown.Menu value={selectedValue}>

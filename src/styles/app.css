@@ -4,13 +4,18 @@ body{
 .mainBackground{
     background-color: rgb(238, 238, 238);
     border-radius: 2%;
-    max-height: calc(100vh - 100px);
+    height: calc(100vh - 100px);
 }
 .leftContainer{
-    height:calc(100vh - 250px);
+    height:calc(100vh - 234px);
     overflow-y: auto;
     position: relative;
     top: 0.2%;
+}
+.floatSubmit{
+    position: fixed;
+    top: 83%;
+    left: 51%;
 }
 .rightContainer{
     position: relative;
@@ -27,13 +32,6 @@ body{
 }
 .card-header{cursor: pointer;}
 .btn-primary{margin-top:2%}
-.btnStayRight{
-    position: fixed;
-    top: 87%;
-    left: 92%;
-    z-index: 999;
-    float: right;
-}
 .AddNew_section{
     margin-top:1%;
     margin-bottom: 1%;
@@ -41,3 +39,4 @@ body{
 .AddNew_section .btn{border-radius: 0px;}
 .activeDropdown{background-color: #DFE6E9;}
 .basic-panel{background-color: rgba(0,0,0,.03); border-color: rgba(0,0,0,.03);}
+.pd-btm-pt5{padding-bottom: 0.5%;}

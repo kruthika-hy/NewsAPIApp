@@ -15,8 +15,8 @@ class SelectAPIDropDown extends Component {
                 </option>
                 ))}
             </select> */}
-            <Dropdown className="col-md-6">
-                <Dropdown.Toggle variant="primary" id="dropdown-basic">
+            <Dropdown className="col-md-3">
+                <Dropdown.Toggle variant="primary btn-sm" id="dropdown-basic">
                     Select API
                 </Dropdown.Toggle>
                 <Dropdown.Menu  value={selectedValue}>

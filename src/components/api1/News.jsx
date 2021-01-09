@@ -38,7 +38,7 @@ export const News = ({newsContent,newsId, newsFirst,nerClick}) => {
                         </div>
                         <div className="row m-3 float-right">
                             <div className="col-md-4">
-                                <button className="btn btn-primary btn-xs" onClick={() => nerClick(newsContent)}>NER</button>
+                                <button className="btn btn-primary btn-sm" onClick={() => nerClick(newsContent)}>NER</button>
                             </div>
                         </div>
                     </Card.Body>

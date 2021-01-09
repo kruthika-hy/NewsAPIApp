@@ -17,8 +17,8 @@ import {NavigationBar} from "./components/NavigationBar"
 // import FooterComponent from "./components/Footer"
 class App extends Component {
   state = {
-    pageCount : 10,
     newItems: [],
+    fullNewsAPIData: [],
     selectAPIs: [
       // {
       //   name: 'Select…',
@@ -34,6 +34,7 @@ class App extends Component {
       },
     ],
     selectedValue: 'NewsAPI',
+    selectedItem: [],
     selectPageNos: [
       // {
       //   name: 'Select…',
@@ -56,7 +57,7 @@ class App extends Component {
         value: '50',
       },
     ],
-    pageLengthValue: '5',
+    pageLengthValue: 100,
   }
   handleDropdownChangeAPI = (selectValue) => {
     console.log("Event",selectValue);
@@ -69,7 +70,13 @@ class App extends Component {
     this.setState({ selectedValue: this.state.selectedValue });
   }
   handleNERClick = (json) => {
-    console.log("Hello Sagar !",json)
+    console.log("Particular item data!",json)
+    this.setState({selectedItem: json})
+    console.log('new',this.state.selectedItem);
+  }
+  handleCompleteJSONClick = (completeData) => {
+    console.log("Full data",completeData);
+    this.setState({fullNewsAPIData: completeData})
   }
   handleNewFeedClick = (val,event) => {
     event.preventDefault();
@@ -86,7 +93,9 @@ class App extends Component {
     
     // console.log("newsData",this.state.newItems,newItem)
   };
+  
   render() {
+
     return(
       <>
         <NavigationBar />
@@ -94,18 +103,21 @@ class App extends Component {
           <div className="row">
             <div className="col-md-7 mr-1 mt-1 p-3 mainBackground">
             <h5>API Feeds</h5>
-            <Alert variant="secondary" className="mt-1 mr-0 ml-0 row basic-panel">
-              {/* <label htmlFor="selectPage" className="col-md-3 m-1">Page Count</label> : */}
+            {/* <Alert variant="secondary" className="mt-1 mr-0 ml-0 row basic-panel"> */}
+              <div className="row pd-btm-pt5">
               <SelectAPIDropDown onDropDownChange={this.handleDropdownChangeAPI} selectedValue={this.state.selectedValue} optionValues={this.state.selectAPIs}/>
               <PageCount onDropDownChange={this.handleSetPageCount} selectedValue={this.state.pageLengthValue} optionValues={this.state.selectPageNos}/>
-              </Alert>
+              </div>
+              {/* <label htmlFor="selectPage" className="col-md-3 m-1">Page Count</label> : */}
+              
+              {/* </Alert> */}
               <div className="leftContainer">
                 <Accordion defaultActiveKey="0">
-                  {this.state.selectedValue === "NewsAPI" ? <NewsContainer nerClickEvent={this.handleNERClick} pageCount={this.state.pageLengthValue}/> : <NewsContainerTwo pageCount={this.state.pageLengthValue}/>}
-                
+                  {this.state.selectedValue === "NewsAPI" ? <NewsContainer nerClickEvent={this.handleNERClick} fullDataClick={this.handleCompleteJSONClick} pageCount={this.state.pageLengthValue}/> : <NewsContainerTwo pageCount={this.state.pageLengthValue}/>}
                 {/* <NewsContainerTwo/> */}
                 </Accordion>
               </div>
+             
             </div>
             <div className="col-md-4 rightContainer mt-1 p-3 mainBackground">
               <NewNewsFormContainer onAddNewFeed = {this.handleNewFeedClick}/>
@@ -113,7 +125,6 @@ class App extends Component {
                   <NewNewsItemContainer newItems ={this.state.newItems}/>
               </div>
             </div>
-            {/* <button type="submit" className="btn btn-primary btnStayRight">Submit</button> */}
           </div>
           
           {/* <FooterComponent/> */}

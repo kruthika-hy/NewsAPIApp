@@ -2,7 +2,7 @@ import axios from 'axios';
 // import {selectRequiredFields} from "../utils/selectRequiredFields"
 const apiKey = "28121d5045cf4256a730f6ac14df004c";
 export const baseURL = `http://newsapi.org/v2/`;
-export const pageLength = 15;
+// export const pageLength = 15;
 export const newStoriesURL = `${baseURL}top-headlines?country=de&category=business&apiKey=${apiKey}`;
 // export const newsURL = `${baseURL}item/`;
 
