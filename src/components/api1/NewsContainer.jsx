@@ -23,15 +23,5 @@ export const NewsContainer = (props) => {
      
      return(
         [newsCont.map((newsData,i) => <News nerClick={nerClickEvent} newsContent={newsData} key={i} newsId={i} newsFirst={i === 0 ? "0" : null}/>),<button className="btn btn-primary btn-sm floatSubmit" onClick={() => fullDataClick(newsCont)}>Submit</button>]
-        // newsCont && newsCont.url ?
-        // (
-        // <>
-        // <p>{newsCont.title}</p>
-        // <a href={newsCont.url} target="_blank">{newsCont.title}</a><br/>
-        // By: <p>{newsCont.by}</p> 
-        // </>
-       // JSON.stringify(news)
-        // )
-        // : (<p>No response from API</p>)
      )
 }
