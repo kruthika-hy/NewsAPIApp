@@ -5,17 +5,17 @@ import {
 
 class SelectPageDropDown extends Component {
     render() { 
-        const {selectedValue,onDropDownChange,optionValues} = this.props;
+        const {selectedValue,onDropDownChange,optionValues,apiValue} = this.props;
         return ( 
             <>
              {/* <li className="list-group-item" id={id}>{desc}</li> */}
              <Dropdown className="col-md-3">
                 <Dropdown.Toggle variant="primary btn-sm" id="dropdown-basic">
-                    Select page length
+                    {selectedValue}
                 </Dropdown.Toggle>
                 <Dropdown.Menu value={selectedValue}>
                     {optionValues.map(item => (
-                        <Dropdown.Item onClick={() => onDropDownChange(item.value)} key={item.value} value={item.value} className={item.value === selectedValue ? 'activeDropdown' : ''}>{item.name}</Dropdown.Item>
+                        <Dropdown.Item onClick={() => onDropDownChange(item.value,apiValue)} key={item.value} value={item.value} className={item.value === selectedValue ? 'activeDropdown' : ''}>{item.name}</Dropdown.Item>
                     ))}    
                 </Dropdown.Menu>
              </Dropdown>

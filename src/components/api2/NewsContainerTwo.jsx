@@ -3,7 +3,8 @@ import {getNews} from "../../services/newsAPITwo"
 import {NewsTwo} from "./NewsTwo"
 // import {pageLength} from "../services/newAPI_2"
 export const NewsContainerTwo = (props) => {
-  const pageCount= props.pageCount
+  const pageCount= props.pageCount;
+  const fullDataClick = props.fullDataClick;
   //to store the ids so that when there is any connectivity issues UI should still be working
   // storyIds going to be initialized with an empty array and we call setStoryIds if we need any changes
     const [newsContentAPI2, setNewsContentAPI2] = useState([]);
@@ -17,7 +18,8 @@ export const NewsContainerTwo = (props) => {
 //   return(newsIds.map(newsID => <NewsContainer newsID = {newsID} key={newsID}/>))
      console.log("newsContent",newsContentAPI2)
      return(
-      newsContentAPI2.map((newsData,i) => <NewsTwo newsContent={newsData} key={i} newsId={i} newsFirst={i === 0 ? "0" : null}/>)
-     )
+      [newsContentAPI2.map((newsData,i) => <NewsTwo newsContent={newsData} key={i} newsId={i} newsFirst={i === 0 ? "0" : null}/>),<button className="btn btn-primary btn-sm floatSubmit" onClick={() => fullDataClick(newsContentAPI2)}>Submit</button>]
+   )
+     
     
 }

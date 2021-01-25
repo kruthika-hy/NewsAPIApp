@@ -37,6 +37,7 @@ export const NewsTwo = ({newsContent,newsId, newsFirst}) => {
                                 <a href={newsContent.url} target="_blank" rel="noreferrer">{newsContent.url}</a>
                             </div>
                         </div>
+                        
                     </Card.Body>
                 </Accordion.Collapse>
             </Card>

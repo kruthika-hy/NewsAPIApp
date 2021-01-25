@@ -17,6 +17,7 @@ import SelectAPIDropDown from './components/SelectAPIDropDown'
 import {NavigationBar} from "./components/NavigationBar"
 // import FooterComponent from "./components/Footer"
 class App extends Component {
+  
   state = {
     newItems: [],
     // fullNewsAPIData: [],
@@ -267,9 +268,10 @@ class App extends Component {
     this.setState({ selectedAPIValue: selectValue });
   };
   //  Function to handle the page count dropdown change 
-  handleSetPageCount = (selectValue) => {
-    // console.log("Page",selectValue);
+  handleSetPageCount = (selectValue,valAPI) => {
+    console.log("apiValue",valAPI)
     this.setState({ pageLengthValue: selectValue});
+    this.setState({ selectedAPIValue: valAPI });
   }
   // Event handler function for NER button click on each of the items in the list
   handleNERClick = (json) => {
@@ -284,6 +286,9 @@ class App extends Component {
     // Setting the state value with the selected object item alone
     let reponseItemContent = responseJsonContent;
     console.log('Output Content',reponseItemContent);
+  }
+  handleCompleteNYJSONClick = (completeData) => {
+    console.log("NY times full data",completeData)
   }
   // Event handling function for the save/submit button that invokes the model by sending the complete json from API
   // and getting the classified output(threat or not threat) and displays the Output list component by replacing the complete API list
@@ -354,8 +359,8 @@ class App extends Component {
               <h5>API Feeds</h5>
               {/* <Alert variant="secondary" className="mt-1 mr-0 ml-0 row basic-panel"> */}
                 <div className="row pd-btm-pt5">
-                <SelectAPIDropDown onDropDownChange={this.handleDropdownChangeAPI} selectedValue={this.state.selectedValue} optionValues={this.state.selectAPIs}/>
-                <PageCount onDropDownChange={this.handleSetPageCount} selectedValue={this.state.pageLengthValue} optionValues={this.state.selectPageNos}/>
+                <PageCount onDropDownChange={this.handleSetPageCount} selectedValue={this.state.pageLengthValue} optionValues={this.state.selectPageNos} apiValue={this.state.selectedAPIValue}/>
+                <SelectAPIDropDown onDropDownChange={this.handleDropdownChangeAPI} selectedValue={this.state.selectedAPIValue} optionValues={this.state.selectAPIs}/>
                 </div>
                 {/* <label htmlFor="selectPage" className="col-md-3 m-1">Page Count</label> : */}
                 
@@ -367,7 +372,7 @@ class App extends Component {
                     ? 
                     <NewsContainer nerClickEvent={this.handleNERClick} fullDataClick={this.handleCompleteJSONClick} pageCount={this.state.pageLengthValue}/> 
                     : 
-                    <NewsContainerTwo pageCount={this.state.pageLengthValue}/>}
+                    <NewsContainerTwo pageCount={this.state.pageLengthValue} fullDataClick={this.handleCompleteNYJSONClick}/>}
                   </Accordion>
                 </div>
               

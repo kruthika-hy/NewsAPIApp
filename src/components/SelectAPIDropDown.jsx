@@ -17,7 +17,7 @@ class SelectAPIDropDown extends Component {
             </select> */}
             <Dropdown className="col-md-3">
                 <Dropdown.Toggle variant="primary btn-sm" id="dropdown-basic">
-                    Select API
+                    {selectedValue === "nyTimes" ? "NY Times" : "News API"}
                 </Dropdown.Toggle>
                 <Dropdown.Menu  value={selectedValue}>
                     {optionValues.map(item => (
