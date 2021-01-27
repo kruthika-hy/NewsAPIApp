@@ -4,7 +4,7 @@ import {
     Card,
   } from 'react-bootstrap';
 
-export const NewsApiOutput = ({responseData,nerOutputClick}) => {
+export const NewsNYOutput = ({responseData,nerOutputClick}) => {
     return(
         // Mapping through the response object to render the items
         responseData.map((outputItem,i) => 
@@ -29,14 +29,14 @@ export const NewsApiOutput = ({responseData,nerOutputClick}) => {
                     </div> */}
                     {/* Description ends here */}
 
-                    {/* Content section starts here */}
+                    {/* Content section starts here || remove this section if not necessary */}
                     <div className="row">
-                        <div className="col-md-4">
-                            Content: 
-                        </div>
-                        <div className="col-md-8" key={i}>
-                            {outputItem.content === null ? "-" : outputItem.content}
-                        </div>
+                            <div className="col-md-4">
+                                Content: 
+                            </div>
+                            <div className="col-md-8" key={i}>
+                                {outputItem.content === null ? "-" : outputItem.content}
+                            </div>
                     </div>
                     <div className="row">
                         <div className="col-md-4">

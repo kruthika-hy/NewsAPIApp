@@ -7,6 +7,7 @@ import PageCount from './components/PageCount'
 import NewNewsFormContainer from './components/NewNewsFormContainer'
 import NewNewsItemContainer from './components/NewNewsItemContainer'
 import {NewsApiOutput} from './components/api1/NewsApiOutput'
+import {NewsNYOutput} from './components/api2/NewsNYOutput'
 import { uuid  } from 'uuidv4';
 import {
   Accordion,
@@ -22,6 +23,7 @@ class App extends Component {
     newItems: [],
     // fullNewsAPIData: [],
     isNewsAPIOutput: false,
+    isNYAPIOutput: false,
     // Hard coded object items of API's
     selectAPIs: [
      {
@@ -288,7 +290,12 @@ class App extends Component {
     console.log('Output Content',reponseItemContent);
   }
   handleCompleteNYJSONClick = (completeData) => {
-    console.log("NY times full data",completeData)
+    console.log("NY times full data",completeData);
+
+    if(!this.state.newsAPIOutputItems.isEmpty()){
+      this.setState({isNewsAPIOutput: false})
+      this.setState({isNYAPIOutput: true})
+    }
   }
   // Event handling function for the save/submit button that invokes the model by sending the complete json from API
   // and getting the classified output(threat or not threat) and displays the Output list component by replacing the complete API list
@@ -310,6 +317,7 @@ class App extends Component {
     */
     if(!this.state.newsAPIOutputItems.isEmpty()){
       this.setState({isNewsAPIOutput: true})
+      this.setState({isNYAPIOutput: false})
     }
   }
   // function to add the new news
@@ -341,14 +349,27 @@ class App extends Component {
         <NavigationBar />
         <div className="container">
           
-            {this.state.isNewsAPIOutput && !this.state.newsAPIOutputItems.isEmpty()
+            {(this.state.isNewsAPIOutput || this.state.isNYAPIOutput) && !this.state.newsAPIOutputItems.isEmpty()
             ?
             <div className="row">
               <div className="col-md-12 mr-1 mt-1 p-3 mainBackground">
-                <h5>API output</h5>
+                
                 <div className="leftContainer">
+                
                   <Accordion defaultActiveKey="0">
+                    {this.state.isNewsAPIOutput 
+                    ?
+                    <>
+                    <h5>News API output</h5>
                     <NewsApiOutput responseData={this.state.newsAPIOutputItems} nerOutputClick={this.handleNEROutputClick}/>
+                    </>
+                    :
+                    <>
+                     <h5>NY Times API output</h5>
+                     <NewsNYOutput responseData={this.state.newsAPIOutputItems} nerOutputClick={this.handleNEROutputClick}/>
+                     </>
+                     }
+                    
                   </Accordion>
                 </div>
               </div>
