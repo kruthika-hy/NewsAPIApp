@@ -29,24 +29,15 @@ export const NewsApiOutput = ({responseData,nerOutputClick}) => {
                     </div> */}
                     {/* Description ends here */}
 
-                    {/* Content section starts here || remove this section if not necessary */}
-                    <div className="row">
-                            <div className="col-md-4">
-                                Content: 
-                            </div>
-                            <div className="col-md-8" key={i}>
-                                {outputItem.content === null ? "-" : outputItem.content}
-                            </div>
-                    </div>
                     {/* Content section starts here */}
-                    <div className="row">
+                    {/* <div className="row">
                         <div className="col-md-4">
                             Content: 
                         </div>
                         <div className="col-md-8" key={i}>
                             {outputItem.content === null ? "-" : outputItem.content}
                         </div>
-                    </div>
+                    </div> */}
                     <div className="row">
                         <div className="col-md-4">
                             Source: 
