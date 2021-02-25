@@ -8,9 +8,9 @@ class SelectPageDropDown extends Component {
         const {selectedValue,onDropDownChange,optionValues,apiValue} = this.props;
         return ( 
             <>
-             {/* <li className="list-group-item" id={id}>{desc}</li> */}
+             <p className='selectLabel'>Select page length: </p>
              <Dropdown className="col-md-3">
-                <Dropdown.Toggle variant="primary btn-sm" id="dropdown-basic">
+                <Dropdown.Toggle variant="primary btn-sm btn-general" id="dropdown-basic">
                     {selectedValue}
                 </Dropdown.Toggle>
                 <Dropdown.Menu value={selectedValue}>
@@ -19,15 +19,7 @@ class SelectPageDropDown extends Component {
                     ))}    
                 </Dropdown.Menu>
              </Dropdown>
-             {/* <select onChange={onDropDownChange} value={selectedValue}>
-                {optionValues.map(item => (
-                <option key={item.value} value={item.value}>
-                    {item.name}
-                </option>
-                ))}
-            </select> */}
             </>
-                
          );
     }
 }

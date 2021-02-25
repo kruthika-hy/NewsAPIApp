@@ -7,16 +7,9 @@ class SelectAPIDropDown extends Component {
         const {selectedValue,onDropDownChange,optionValues} = this.props;
         return ( 
             <>
-             {/* <li className="list-group-item" id={id}>{desc}</li> */}
-             {/* <select onChange={onDropDownChange} value={selectedValue}>
-                {optionValues.map(item => (
-                <option key={item.value} value={item.value}>
-                    {item.name}
-                </option>
-                ))}
-            </select> */}
+            <p className='selectLabel'>Select API: </p>
             <Dropdown className="col-md-3">
-                <Dropdown.Toggle variant="primary btn-sm" id="dropdown-basic">
+                <Dropdown.Toggle variant="primary btn-sm btn-general" id="dropdown-basic">
                     {selectedValue === "nyTimes" ? "NY Times" : "News API"}
                 </Dropdown.Toggle>
                 <Dropdown.Menu  value={selectedValue}>

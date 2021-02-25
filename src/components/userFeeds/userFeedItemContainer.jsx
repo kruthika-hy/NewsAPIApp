@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
 import NewsItem from './NewsItem'
-class NewNewsItemContainer extends Component {
+class UserFeedItemContainer extends Component {
     render() { 
-        const {newItems} = this.props;
+        const {newItems, onSendClick} = this.props;
         return ( 
-            <ul className="list-group">
-                {/* <li class="list-group-item">First item</li>
-                <li class="list-group-item">Second item</li>
-                <li class="list-group-item">Third item</li> */}
+            <ul className="list-group userFeedULContainer">
                 {newItems.map((newsItem) => (
                     <NewsItem
                     key={newsItem.id}
                     newsItem={newsItem}
+                    onSendClick = {onSendClick}
                     >
                     </NewsItem>
                 ))}
@@ -20,4 +18,4 @@ class NewNewsItemContainer extends Component {
     }
 }
  
-export default NewNewsItemContainer;
+export default UserFeedItemContainer;

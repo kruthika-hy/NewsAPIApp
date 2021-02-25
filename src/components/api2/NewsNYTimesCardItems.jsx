@@ -4,8 +4,7 @@ import {
     Card,
   } from 'react-bootstrap';
 
-export const NewsTwo = ({newsContent,newsId, newsFirst}) => {
-    // console.log('newsId',newsId)
+export const NewsNYTimesCardItems = ({newsContent,newsId, newsFirst}) => {
     return(
        <Card>
                 <Accordion.Toggle as={Card.Header} eventKey={newsFirst !== null ? "0" : newsId} >
@@ -37,7 +36,11 @@ export const NewsTwo = ({newsContent,newsId, newsFirst}) => {
                                 <a href={newsContent.url} target="_blank" rel="noreferrer">{newsContent.url}</a>
                             </div>
                         </div>
-                        
+                        {/* <div className="row m-3 float-right">
+                            <div className="col-md-4">
+                                <button className="btn btn-primary btn-sm btn-general" onClick={() => nerClick(newsContent)}>NER</button>
+                            </div>
+                         </div> */}
                     </Card.Body>
                 </Accordion.Collapse>
             </Card>

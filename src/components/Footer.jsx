@@ -4,9 +4,10 @@ class FooterComponent extends Component {
     render() { 
         return ( 
             <>
-            <footer className="page-footer font-small blue">
-                <div class="footer-copyright text-center py-3">© 2020 Copyright:
-                    <a href="#"> BATMAN </a>
+           <footer className="bg-light text-center">
+                <div className="text-center p-3">
+                    © 2021 Copyright: &nbsp; 
+                    <a href="#" className="headerFont">BATMAN</a>
                 </div>
             </footer>
             </>
